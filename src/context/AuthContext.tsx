@@ -1,5 +1,5 @@
 "use client"
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { 
   User,
   signInWithEmailAndPassword,
@@ -44,7 +44,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         if (!userDoc.exists()) {
           router.push('/onboarding');
         } else {
-          router.push('/dashboard');
+          // router.push('/en');
         }
       } else {
         document.cookie = `auth=; path=/; max-age=0; SameSite=Lax`;

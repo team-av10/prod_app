@@ -3,10 +3,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
-import { doc, setDoc, getDoc, addDoc } from 'firebase/firestore';
+import { doc, setDoc, getDoc} from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import Head from 'next/head';
-import Image from 'next/image';
 
 interface UserData {
   fullName: string;
@@ -39,19 +38,18 @@ type Message = {
 export default function OnboardingPage() {
   const { user } = useAuth();
   const router = useRouter();
-  const [step, setStep] = useState(1);
-  const [userData, setUserData] = useState<UserData>({
-    fullName: '',
-    email: user?.email || '',
-    phoneNumber: '',
-    farmSize: '',
-    cropTypes: '',
-    soilType: '',
-    location: '',
-    plantingDate: '',
-    fertilizationDate: '',
-    harvestingDate: ''
-  });
+  // const [userData, setUserData] = useState<UserData>({
+  //   fullName: '',
+  //   email: user?.email || '',
+  //   phoneNumber: '',
+  //   farmSize: '',
+  //   cropTypes: '',
+  //   soilType: '',
+  //   location: '',
+  //   plantingDate: '',
+  //   fertilizationDate: '',
+  //   harvestingDate: ''
+  // });
   const [messages, setMessages] = useState<Message[]>([]);
   const [currentFieldIndex, setCurrentFieldIndex] = useState<number>(0);
   const [formData, setFormData] = useState<Record<string, string>>({});

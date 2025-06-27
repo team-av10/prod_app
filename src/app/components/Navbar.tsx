@@ -1,7 +1,25 @@
+"use client"
 import React from 'react'
 import Image from 'next/image'
+import { useAuth } from '@/context/AuthContext';
+import { useRouter } from 'next/navigation';
+
+
 
 export default function Navbar() {
+  const { logout } = useAuth();
+const router = useRouter();
+
+
+const handleLogout = async () => {
+  try {
+    await logout();
+    router.push('/auth');
+  } catch (error) {
+    console.error('Error logging out:', error);
+  }
+};
+
   return (
 <div className="navbar bg-base-100 shadow-sm">
   <div className="navbar-start">
@@ -12,15 +30,9 @@ export default function Navbar() {
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a>Item 1</a></li>
-        <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
-        <li><a>Item 3</a></li>
+       <li><a href='/en'>English</a></li>
+      <li><a href='/hi'>हिन्दी</a></li>
+      <li><a href='/ta'>தமிழ்</a></li>
       </ul>
     </div>
     <a className="btn btn-ghost">
@@ -36,21 +48,13 @@ export default function Navbar() {
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Item 1</a></li>
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li>
-      <li><a>Item 3</a></li>
+      <li><a href='/en'>English</a></li>
+      <li><a href='/hi'>हिन्दी</a></li>
+      <li><a href='/ta'>தமிழ்</a></li>
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-500 text-white hover:from-emerald-500 hover:via-teal-400 hover:to-cyan-400 transform hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-lg hover:shadow-xl rounded-full px-6 border-0 hover:brightness-110 active:scale-95">Get Started</a>
+    <a onClick={handleLogout} className="btn bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-500 text-white hover:from-emerald-500 hover:via-teal-400 hover:to-cyan-400 transform hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-lg hover:shadow-xl rounded-full px-6 border-0 hover:brightness-110 active:scale-95">👋</a>
   </div>
 </div>
   )
