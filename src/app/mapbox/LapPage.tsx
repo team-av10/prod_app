@@ -14,9 +14,9 @@ export default function LapPage() {
   };
 
   const initialViewState = {
-    longitude: 80.27,
-    latitude: 13.08,
-    zoom: 10
+    longitude: 78.1728808,
+    latitude: 26.2506416,
+    zoom: 17
   };
 
   return (

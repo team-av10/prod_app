@@ -74,7 +74,7 @@ const WeatherCard = () => {
         }
 
         const userData = userDoc.data();
-        const location = userData.location;
+        const location = "Gwalior";
 
         if (!location) {
           throw new Error('Location not found in user profile');

@@ -71,8 +71,8 @@ const defaultGeometry: Geometry = {
 };
 
 const defaultTimeRange = {
-  from: '2022-04-01T00:00:00Z',
-  to: '2022-08-30T23:59:59Z',
+  from: '2025-04-01T00:00:00Z',
+  to: '2025-06-25T23:59:59Z',
 };
 
 export default function NDVIStatsPage() {
@@ -179,8 +179,8 @@ export default function NDVIStatsPage() {
       await new Promise(resolve => setTimeout(resolve, 1000));
       return {
         bbox: JSON.stringify([[15.541723001099184, 46.820368115848446], [15.542211861353849, 46.81964331510048]]),
-        from: '2022-04-01T00:00:00Z',
-        to: '2022-08-30T23:59:59Z'
+        from: '2025-06-01T00:00:00Z',
+        to: '2025-06-25T23:59:59Z'
       };
     } catch (error) {
       console.error('Error fetching data from Firebase:', error);
@@ -229,12 +229,12 @@ export default function NDVIStatsPage() {
       // Mock API call with sample data
       await new Promise(resolve => setTimeout(resolve, 1500));
       const mockData: StatsData[] = [
-        { interval: '2022-04-01 - 2022-04-15', ndvi_mean: 0.45 },
-        { interval: '2022-04-16 - 2022-04-30', ndvi_mean: 0.52 },
-        { interval: '2022-05-01 - 2022-05-15', ndvi_mean: 0.68 },
-        { interval: '2022-05-16 - 2022-05-31', ndvi_mean: 0.75 },
-        { interval: '2022-06-01 - 2022-06-15', ndvi_mean: 0.82 },
-        { interval: '2022-06-16 - 2022-06-30', ndvi_mean: 0.78 },
+        { interval: '2025-04-01 - 2025-04-25', ndvi_mean: 0.45 },
+        { interval: '2025-04-16 - 2025-04-30', ndvi_mean: 0.52 },
+        { interval: '2025-05-01 - 2025-05-15', ndvi_mean: 0.68 },
+        { interval: '2025-05-16 - 2025-05-31', ndvi_mean: 0.75 },
+        { interval: '2025-06-01 - 2025-06-15', ndvi_mean: 0.82 },
+        { interval: '2025-06-16 - 2025-06-30', ndvi_mean: 0.78 },
       ];
       setStatsData(mockData);
     } catch (err: any) {

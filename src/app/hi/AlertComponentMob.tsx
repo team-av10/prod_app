@@ -19,20 +19,20 @@ const AlertsComponentMob: React.FC<AlertsComponentProps> = ({ userId }) => {
   useEffect(() => {
     const alertsRef = ref(database, `users/${userId}/alert-hi`);
     
-    // const unsubscribe = onValue(alertsRef, (snapshot) => {
-    //   if (snapshot.exists()) {
-    //     const alertsData = snapshot.val();
-    //     const alertsArray: Alert[] = Object.keys(alertsData)
-    //       .sort() // Sort to maintain order (01, 02, 03, 04)
-    //       .map(key => ({
-    //         id: key,
-    //         message: alertsData[key] // Direct string value
-    //       }));
-    //     setAlerts(alertsArray);
-    //   } else {
-    //     setAlerts([]);
-    //   }
-    // });
+    const unsubscribe = onValue(alertsRef, (snapshot) => {
+      if (snapshot.exists()) {
+        const alertsData = snapshot.val();
+        const alertsArray: Alert[] = Object.keys(alertsData)
+          .sort() // Sort to maintain order (01, 02, 03, 04)
+          .map(key => ({
+            id: key,
+            message: alertsData[key] // Direct string value
+          }));
+        setAlerts(alertsArray);
+      } else {
+        setAlerts([]);
+      }
+    });
 
     return () => {
       off(alertsRef);

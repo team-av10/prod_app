@@ -43,8 +43,8 @@ export default function TreeProvider({
 
             map.current = new mapboxgl.Map({
                 container: mapContainerRef.current,
-                zoom: 10,
-                center: [80.27, 13.08],
+                zoom: 17,
+                center: [78.1728808, 26.2506416],
                 style: 'mapbox://styles/mapbox/satellite-streets-v12'
             });
 

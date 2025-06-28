@@ -37,19 +37,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setLoading(false);
       
       // Set or remove auth cookie based on user state
-      if (user) {
-        document.cookie = `auth=true; path=/; max-age=86400; SameSite=Lax`;
-        // Check if user has completed onboarding
-        const userDoc = await getDoc(doc(db, 'users', user.uid));
-        if (!userDoc.exists()) {
-          router.push('/onboarding');
-        } else {
-          // router.push('/en');
-        }
-      } else {
-        document.cookie = `auth=; path=/; max-age=0; SameSite=Lax`;
-        router.push('/auth');
-      }
+      // if (user) {
+      //   document.cookie = `auth=true; path=/; max-age=86400; SameSite=Lax`;
+      //   // Check if user has completed onboarding
+      //   const userDoc = await getDoc(doc(db, 'users', user.uid));
+      //   if (!userDoc.exists()) {
+      //     router.push('/onboarding');
+      //   } else {
+      //     // router.push('/en');
+      //   }
+      // } else {
+      //   document.cookie = `auth=; path=/; max-age=0; SameSite=Lax`;
+      //   router.push('/auth');
+      // }
     });
 
     return unsubscribe;

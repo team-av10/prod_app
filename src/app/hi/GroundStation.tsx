@@ -62,7 +62,7 @@ export default function GroundStationNav() {
     
     // Navigate to the respective ground station page
     setTimeout(() => {
-      router.push(`/ground-station/${stationNumber}`);
+      router.push(`/en/ground-station/${stationNumber}`);
     }, 150); // Small delay for visual feedback
   };
 
